@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
-{% block title %}Manager: {{ object.manager.last_name }}{% endblock title %}
+{% block title %}Manager: {{ object.manager }}{% endblock title %}
 
 {% block content %}
-<h2>Manager: {{ object.manager }}</h2>
+<h2>{{ object.manager }}</h2>
 <table class="table table-striped table-dark">
         <thead>
             <tr>

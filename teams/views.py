@@ -18,6 +18,9 @@ class HomePageView(ListView):
         context['ranked_teams'] = ordered_teams
         return context
 
+class RulesPageView(TemplateView):
+    template_name = 'rules.html'
+
 
 class TeamCreateView(CreateView):
     model = Team
