@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}home{% endblock title %}
+
+{% block content %}
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">NFL Pickem</h1>
+        <p class="lead">No more Luck involved (ha!). Either know the game or fail miserably.</p>
+      </div>
+    </div>
+
+
+    <h2>Standings</h2>
+
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Manager</th>
+                <th scope="col">Teams</th>
+                <th scope="col">Record</th>
+                <th scope="col">Points For</th>
+                <th scope="col">Winning %</th>
+            </tr>
+        </thead>
+
+        <tbody>
+          {% for team in ranked_teams %}
+            <tr>
+            <th scope='row'><a href="{% url 'team-detail' team.pk %}">{{ team.manager.get_name }}</a></td>
+            <td>{{ team.team1}}/{{ team.team2}}/{{ team.team3}}/{{ team.team4}}</td>
+            <td>{{ team.get_wins }}-{{ team.get_losses }}-{{ team.get_ties }}</td>
+            <td>{{ team.get_pointsfor }}</td>
+            <td>{{ team.get_winning_percentage }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+
+    </table>
+{% endblock content %}
