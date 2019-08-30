@@ -70,6 +70,8 @@ class Team(models.Model):
         if model.objects.count() > 8:
             raise ValidationError("There can only be 8 Teams in a league")
 
+    # deployment file path: '/home/kilgoretrout1/nfl-pickem/records.csv'
+
     def get_wins(self):
         teams = self.get_teams()
 

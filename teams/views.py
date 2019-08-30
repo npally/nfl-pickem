@@ -3,6 +3,7 @@ from django.views.generic.edit import CreateView
 from django.views.generic.detail import SingleObjectMixin
 
 from .models import Team
+from announcements.models import Post
 # Create your views here.
 
 
@@ -15,8 +16,10 @@ class HomePageView(ListView):
 
         ordered_teams = sorted(
             Team.objects.all(), key=lambda x: int(x.get_wins()), reverse=True)
+        context['news'] = Post.objects.all()[0]
         context['ranked_teams'] = ordered_teams
         return context
+
 
 class RulesPageView(TemplateView):
     template_name = 'rules.html'

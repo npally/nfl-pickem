@@ -26,7 +26,7 @@ SECRET_KEY = 'q-asit2v99-argr8*gha*jzh#+rsnlkg7%d@1(14kxhu7$9ibg'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+# deployment value == 'kilgoretrout1.pythonanywhere.com'
 
 # Application definition
 
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     # Local
     'users.apps.UsersConfig',
     'teams.apps.TeamsConfig',
+    'announcements.apps.AnnouncementsConfig'
 ]
 
 MIDDLEWARE = [
@@ -112,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Los_Angeles'
 
 USE_I18N = True
 
@@ -128,3 +129,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 AUTH_USER_MODEL = 'users.CustomUser'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# STATIC_ROOT = '/home/kilgoretrout1/nfl-pickem/static'
