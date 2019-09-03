@@ -10,18 +10,26 @@
                 <th scope="col">Teams</th>
                 <th scope="col">Record</th>
                 <th scope="col">Points For</th>
-                <th scope="col">Winning %</th>
+
             </tr>
         </thead>
 
         <tbody>
+
+            {% for team in object.get_indv_team_data %}
+
             <tr>
-            <td>{{ object.team1}}/{{ object.team2}}/{{ object.team3}}/{{ object.team4}}</td>
-            <td>{{ object.get_wins }}-{{ object.get_losses }}-{{ object.get_ties }}</td>
-            <td>{{ object.get_pointsfor }}</td>
-            <td>{{ object.get_winning_percentage }}</td>
+            <td>{{ team.0 }}</td>
+            <td>{{ team.1 }}</td>
+            <td>{{ team.2 }}</td>
             </tr>
 
+            {% endfor %}
+            <tr>
+            <th scope="row">Total</th>
+            <th scope="row"> {{ object.get_manager_record }}</th>
+            <th scope="row">{{ object.get_pointsfor }}</th>
+            </tr>
         </tbody>
 
     </table>

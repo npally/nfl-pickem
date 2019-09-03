@@ -9,8 +9,3 @@ from .models import Post
 class NewsListView(ListView):
     model = Post
     template_name = 'news_list.html'
-
-
-class NewsDetailView(DetailView):
-    model = Post
-    template_name = 'news_detail.html'

@@ -10,7 +10,7 @@
             <span class="text-muted">by {{ post.author }} | {{ post.date }}</span>
         </div>
         <div class="card-body">
-            {{ post.body }}
+            {{ post.body | linebreaks }}
         </div>
     </div>
     <br />
