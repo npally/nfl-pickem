@@ -39,3 +39,7 @@ class TeamListView(ListView):
 class TeamDetailView(DetailView):
     model = Team
     template_name = 'team_detail.html'
+
+
+class PowerRankingView(TemplateView):
+    template_name = 'power_rankings.html'

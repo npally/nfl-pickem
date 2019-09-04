@@ -3,6 +3,11 @@
 {% block title %}Home{% endblock title %}
 
 {% block content %}
+    <h2>Latest News</h2>
+        <div class="alert alert-primary" role="alert">
+            <a href="{% url 'news-list' %}">{{ news }}</a>
+        </div>
+
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
         <h1 class="display-4">NFL Pickem</h1>
@@ -10,10 +15,7 @@
       </div>
     </div>
 
-    <h2>Latest News</h2>
-        <div class="alert alert-primary" role="alert">
-            <a href="{% url 'news-list' %}">{{ news }}</a>
-        </div>
+
     <h2>Draft Order</h2>
         <ol class="">
             <li>Hossein</li>
