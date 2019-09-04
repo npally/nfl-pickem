@@ -146,8 +146,11 @@ class Team(models.Model):
             csv_reader = csv.DictReader(file)
             pf = 0
 
-            for row in csv_reader:
-                for team in teams:
-                    if row["abb"] == team:
-                        pf += int(row['points_for'])
+            # for row in csv_reader:
+            #     for team in teams:
+            #         if row["abb"] == team:
+            #             if pf == '':
+            #                 pf = '0'
+            #             else:
+            #                 pf += int(row['points_for'])
         return "{}".format(pf)
