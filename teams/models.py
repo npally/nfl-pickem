@@ -79,6 +79,8 @@ class Team(models.Model):
 
                         pf = row['points_for']
 
+                        if pf == "":
+                            pf = 0
                         ol.append(verbose_name)
                         ol.append(record)
                         ol.append(pf)
@@ -146,11 +148,12 @@ class Team(models.Model):
             csv_reader = csv.DictReader(file)
             pf = 0
 
-            # for row in csv_reader:
-            #     for team in teams:
-            #         if row["abb"] == team:
-            #             if pf == '':
-            #                 pf = '0'
-            #             else:
-            #                 pf += int(row['points_for'])
+            for row in csv_reader:
+                for team in teams:
+                    if row["abb"] == team:
+                        pf = row['points_for']
+                        if pf == "":
+                            pf = 0
+                        else:
+                            pf += int(pf)
         return "{}".format(pf)

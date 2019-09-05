@@ -39,9 +39,25 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'news-list' %}">News</a>
           </li>
-          <li class="nav-item">
+
+          <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Fun Stuff
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'power-rankings' %}">Power Rankings</a>
+          <a class="dropdown-item" href="{% url 'quiz_list' %}">Trivia</a>
+
+        </div>
+
+
+
+          <!-- <li class="nav-item">
             <a class="nav-link" href="{% url 'power-rankings' %}">Power Rankings</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'quiz_list' %}">Trivia</a>
+          </li> -->
         </ul>
       </div>
 

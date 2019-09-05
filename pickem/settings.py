@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     # Local
     'users.apps.UsersConfig',
     'teams.apps.TeamsConfig',
-    'announcements.apps.AnnouncementsConfig'
+    'announcements.apps.AnnouncementsConfig',
+    'trivia.apps.TriviaConfig'
 ]
 
 MIDDLEWARE = [

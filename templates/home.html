@@ -15,19 +15,6 @@
       </div>
     </div>
 
-
-    <h2>Draft Order</h2>
-        <ol class="">
-            <li>Hossein</li>
-            <li>Arash</li>
-            <li>Cyrus</li>
-            <li>Kevin</li>
-            <li>Adam</li>
-            <li>Nick</li>
-            <li>Josh</li>
-            <li>Bobby</li>
-        </ol>
-
     <h2>Standings</h2>
 
     <table class="table table-striped">
@@ -44,7 +31,7 @@
           {% for team in ranked_teams %}
             <tr>
             <th scope='row'><a href="{% url 'team-detail' team.pk %}">{{ team.manager.get_name }}</a></td>
-            <td>{{ team.team1}}/{{ team.team2}}/{{ team.team3}}/{{ team.team4}}</td>
+            <td>{{ team.team1}} / {{ team.team2}} / {{ team.team3}} / {{ team.team4}}</td>
             <td>{{ team.get_manager_record }}</td>
             <td>{{ team.get_pointsfor }}</td>
             </tr>

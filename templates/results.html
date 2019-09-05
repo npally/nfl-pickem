@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block title %}Results{% endblock title %}
+
+{% block content %}
+    <h3>{{ correct_answers }}/{{ total_questions }}</h3>
+    <p>Take another <a href="{% url 'quiz_list' %}">quiz</a></p>
+{% endblock content %}
