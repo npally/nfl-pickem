@@ -75,7 +75,9 @@ class Team(models.Model):
 
                         w = int(row['wins'])
                         l = int(row['losses'])
-                        record = "{}-{}".format(w, l)
+                        t = int(row['ties'])
+
+                        record = "{}-{}-{}".format(w, l, t)
 
                         pf = row['points_for']
 
@@ -88,7 +90,7 @@ class Team(models.Model):
         return nl
 
     def team_records(self):
-        l = []
+        nl = []
         teams = self.get_teams()
 
         with open(CSV_FILE) as file:
@@ -99,10 +101,10 @@ class Team(models.Model):
                     if row["abb"] == team:
                         w = int(row['wins'])
                         l = int(row['losses'])
-
-                        record = "{}-{}".format(w, l)
-                        l.append(record)
-        return l
+                        t = int(row['ties'])
+                        record = "{}-{}-{}".format(w, l, t)
+                        nl.append(record)
+        return nl
 
     def __str__(self):
         return self.manager.get_name()
@@ -138,22 +140,31 @@ class Team(models.Model):
                     if row['abb'] == team:
                         w += int(row['wins'])
                         l += int(row['losses'])
+                        t += int(row['ties'])
 
-        return "{}-{}".format(w, l)
+        return "{}-{}-{}".format(w, l, t)
+
+    def get_standings_points(self):
+        record = self.get_manager_record()
+        x = record.split("-")
+        wins = float(x[0])
+        ties = float(x[2])
+        points = wins + (ties * .5)
+        return points
 
     def get_pointsfor(self):
         teams = self.get_teams()
 
         with open(CSV_FILE) as file:
             csv_reader = csv.DictReader(file)
-            pf = 0
+            x = 0
 
             for row in csv_reader:
                 for team in teams:
                     if row["abb"] == team:
                         pf = row['points_for']
                         if pf == "":
-                            pf = 0
+                            x += 0
                         else:
-                            pf += int(pf)
-        return "{}".format(pf)
+                            x += int(pf)
+        return "{}".format(x)

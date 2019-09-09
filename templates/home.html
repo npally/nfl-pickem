@@ -23,7 +23,8 @@
                 <th scope="col">Manager</th>
                 <th scope="col">Teams</th>
                 <th scope="col">Record</th>
-                <th scope="col">Points For</th>
+                <th scope="col">Points Scored</th>
+                <th scope="col">Points</th>
             </tr>
         </thead>
 
@@ -34,6 +35,7 @@
             <td>{{ team.team1}} / {{ team.team2}} / {{ team.team3}} / {{ team.team4}}</td>
             <td>{{ team.get_manager_record }}</td>
             <td>{{ team.get_pointsfor }}</td>
+            <td>{{ team.get_standings_points }}</td>
             </tr>
           {% endfor %}
         </tbody>

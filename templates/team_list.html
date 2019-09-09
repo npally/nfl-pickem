@@ -19,7 +19,7 @@
           {% for team in object_list %}
             <tr>
             <th scope='row'><a href="{% url 'team-detail' team.pk %}">{{ team.manager.get_name }}</a></td>
-            <td>{{ team.team1}}/{{ team.team2}}/{{ team.team3}}/{{ team.team4}}</td>
+            <td>{{ team.team1}} / {{ team.team2}} / {{ team.team3}} / {{ team.team4}}</td>
 
             </tr>
           {% endfor %}

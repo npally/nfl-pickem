@@ -15,7 +15,7 @@ class HomePageView(ListView):
         context = super(HomePageView, self).get_context_data(**kwargs)
 
         ordered_teams = sorted(
-            Team.objects.all(), key=lambda x: int(x.get_wins()), reverse=True)
+            Team.objects.all(), key=lambda x: float(x.get_standings_points()), reverse=True)
         context['news'] = Post.objects.all()[0]
         context['ranked_teams'] = ordered_teams
         return context

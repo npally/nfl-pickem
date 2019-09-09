@@ -83,16 +83,16 @@ nfc_stats_list = get_stats(nfc_teams, nfc_stats_list)
 x = 0
 for i in range(32):
     if i < 16:
-        d[nfl_teams_list[i]] = afc_stats_list[i][:4]
+        d[nfl_teams_list[i]] = afc_stats_list[i][:5]
 
     if i > 15:
-        d[nfl_teams_list[i]] = nfc_stats_list[x][:4]
+        d[nfl_teams_list[i]] = nfc_stats_list[x][:5]
         x += 1
 
 # Creates CSV_File with scraped data
 
 with open(CSV_FILE, mode='w') as csv_file:
-    fieldnames = ['team_name', 'abb', 'wins', 'losses', 'points_for']
+    fieldnames = ['team_name', 'abb', 'wins', 'losses', 'ties', 'points_for']
     writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
 
     writer.writeheader()
@@ -103,4 +103,5 @@ with open(CSV_FILE, mode='w') as csv_file:
              'abb': abb_dict[key],
              'wins': value[0],
              'losses': value[1],
-             'points_for': value[3]})
+             'ties': value[2],
+             'points_for': value[4]})
